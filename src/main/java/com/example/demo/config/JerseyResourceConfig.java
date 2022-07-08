@@ -16,8 +16,11 @@ public class JerseyResourceConfig extends ResourceConfig {
         register(Test2.class);
         register(Test3.class);
         register(Test4.class);
+        // 可將上面的 class 統一放在一包，然後和下面的 packages 一起使用，這樣就不用每次增加就註冊了
+        // packages("com.example.demo.controller", "com.example.demo.interceptor"); // 路徑不對會 404
 
         // 掃描包
         packages("com.example.demo.controller"); // 路徑不對會 404
+
     }
 }
