@@ -9,7 +9,7 @@ public class ExceptionTest2 implements ExceptionMapper<IllegalArgumentException>
 
     @Override
     public Response toResponse(IllegalArgumentException exception) {
-        System.out.println("哇哈哈2");
+        System.out.println("ExceptionTest2");
         return null;
     }
 }

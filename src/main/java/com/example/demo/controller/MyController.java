@@ -70,6 +70,9 @@ public class MyController {
         return "finish";
     }
 
+    /**
+     * http://localhost:8080/first/xxx/exception
+     */
     @Path("/exception")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -80,6 +83,9 @@ public class MyController {
         int i = 1 / 0;
     }
 
+    /**
+     * http://localhost:8080/first/xxx/exception2
+     */
     @Path("/exception2")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
