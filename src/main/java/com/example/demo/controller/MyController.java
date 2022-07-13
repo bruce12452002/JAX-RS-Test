@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 
 @Path("/xxx")
 public class MyController {
@@ -67,5 +68,24 @@ public class MyController {
     public String testInterceptor() {
         System.out.println("testInterceptor");
         return "finish";
+    }
+
+    @Path("/exception")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @MyInterceptor
+    public void exception() {
+        System.out.println("exception");
+//        throw new IllegalArgumentException("exception");
+        int i = 1 / 0;
+    }
+
+    @Path("/exception2")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @MyInterceptor
+    public void exception2() throws IOException {
+        System.out.println("exception2");
+        throw new IOException("exception2");
     }
 }
