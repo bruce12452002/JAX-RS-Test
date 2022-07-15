@@ -23,6 +23,7 @@ public class MyController {
     @Path("/{id}")
     @GET
     public String hello(@PathParam("id") int id) {
+        System.out.println("xxx");
         return "xxx"; // 123
     }
 
