@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.anno.MyInterceptor;
 import com.example.demo.entity.Animal;
+import com.example.demo.entity.Cat;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -14,11 +15,8 @@ public class MyController {
     private Animal animal;
 
 
-    /**
+    /*
      * http://localhost:8080/first/xxx/123
-     *
-     * @param id
-     * @return
      */
     @Path("/{id}")
     @GET
@@ -27,7 +25,7 @@ public class MyController {
         return "xxx"; // 123
     }
 
-    /**
+    /*
      * http://localhost:8080/first/xxx/123/monkey
      */
     @Path("/{id}/{name}")
@@ -39,7 +37,7 @@ public class MyController {
         return animal;
     }
 
-    /**
+    /*
      * http://localhost:8080/first/xxx/queryParam/haha?key=value&param=p
      */
     @Path("/queryParam/{param}")
@@ -49,7 +47,18 @@ public class MyController {
         return param; // p
     }
 
-    /**
+    /*
+     * http://localhost:8080/first/xxx/cat?id=4&name=meow
+     */
+    @Path("/cat")
+    @GET
+    public String hello(@BeanParam Cat cat) {
+        System.out.println("cId=" + cat.getId());
+        System.out.println("cName=" + cat.getName());
+        return "cat";
+    }
+
+    /*
      * http://localhost:8080/first/xxx/matrixParam/qq;pm=1;mp=2?gy=3
      */
     @Path("/matrixParam/{param}")
@@ -59,7 +68,7 @@ public class MyController {
         return mp; // 2
     }
 
-    /**
+    /*
      * http://localhost:8080/first/xxx/testInterceptor
      */
     @Path("/testInterceptor")
@@ -71,7 +80,7 @@ public class MyController {
         return "finish";
     }
 
-    /**
+    /*
      * http://localhost:8080/first/xxx/exception
      */
     @Path("/exception")
@@ -84,7 +93,7 @@ public class MyController {
         int i = 1 / 0;
     }
 
-    /**
+    /*
      * http://localhost:8080/first/xxx/exception2
      */
     @Path("/exception2")
