@@ -2,12 +2,13 @@ package com.example.demo.entity;
 
 import javax.ws.rs.QueryParam;
 
-/**
+/*
  * 使用 @BeanParam 時，不可注入
  */
 public class Cat {
-    /**
+    /*
      * 使用 @BeanParam 時，不可用基本型態
+     * @QueryParam @QueryParam 只能擇其一
      */
     @QueryParam("id")
 //    @FormParam("id")
